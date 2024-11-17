@@ -85,7 +85,7 @@
         if (data.recipient == selectedUser) {
           for(let message of data.messages) {
             if (message.sender == username) {
-              displayMessage('You', data.message);
+              displayMessage('You', message.message);
             } else {
               displayMessage(message.sender, message.message);
             }

@@ -109,14 +109,18 @@
       }
 
       function addUser(username) {
-        var userElement = document.createElement("li");
-        userElement.className = "list-group-item list-group-item-action";
-        userElement.innerText = username;
-        userElement.id = 'user-' + username;
-        userElement.onclick = function() {
-          openChat(username);
-        };
-        document.getElementById("users-list").appendChild(userElement);
+        var userId = 'user-' + username;
+        // Check if an element with the same ID already exists
+        if (!document.getElementById(userId)) {
+            var userElement = document.createElement("li");
+            userElement.className = "list-group-item list-group-item-action";
+            userElement.innerText = username;
+            userElement.id = userId;
+            userElement.onclick = function() {
+                openChat(username);
+            };
+            document.getElementById("users-list").appendChild(userElement);
+        }
       }
 
       function removeUser(username) {
